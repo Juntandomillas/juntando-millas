@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juntando.Millas - Contacto</title>
+
+  <!-- Font Awesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* Evitar selección y arrastre */
+    .no-move {
+      user-select: none;
+      -webkit-user-drag: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-touch-callout: none;
+      cursor: default;
+    }
+
+    /* Fondo de pantalla */
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('../Fotos_Galeria/Foto\ Contacto');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header {
+      width: 100%;
+      background-color: #f5f5f5;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #5dade2;
+    }
+
+    nav div {
+      display: flex;
+      gap: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    main h2 {
+      text-align: center;
+      color: #2a5d84;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    form label {
+      font-weight: 600;
+      color: #2a5d84;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1.5px solid #2a5d84;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    form button {
+      background: #f25c54;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #e03e40;
+    }
+
+    .frases {
+      margin-top: 40px;
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      margin-top: 10px;
+      padding-top: 50px;
+    }
+
+    footer hr {
+      border: none;
+      border-top: 6px solid #000;
+      width: 100%;
+      margin: 0 0 10px 0;
+    }
+
+    footer .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    footer .footer-icons a {
+      transition: transform 0.3s ease;
+      font-size: 36px;
+    }
+
+    footer .footer-icons a:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Encabezado -->
+  <div class="no-move" style="display: flex; align-items: center; gap: 20px; padding: 20px; background-color: rgba(255,255,255,0.7); border-radius: 10px;">
+    <img src="../Fotos_Galeria/Foto Portada.jpeg" alt="Foto manejando" draggable="false" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <p style="color: #0328fc; font-family: 'Segoe UI', sans-serif; font-size: 28px; margin: 0; -webkit-text-stroke: 1px blue; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
+      ✈️ Juntando.Millas
+    </p>
+  </div>
+
+  <!-- Menu -->
+  <header>
+    <h1>✈️ Pasaporte Abierto</h1>
+    <nav>
+      <div>
+        <a href="./index.html" style="text-decoration: none; color: #333; font-weight: bold;">Inicio</a>
+        <a href="./Bitacora.html">Bitacora</a>
+        <a href="./experiencia.html">Experiencias</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <h2>¿A dónde te gustaría viajar?</h2>
+
+    <!-- Menú de destinos -->
+    <div style="display: flex; justify-content: center; margin-bottom: 25px;">
+      <select id="destinos" style="font-size: 1.1rem; padding: 10px 15px; border-radius: 8px; border: 2px solid #2a5d84; cursor: pointer;">
+        <option value="" disabled selected>Selecciona un destino</option>
+        <option value="playa">Playa paradisiaca</option>
+        <option value="montaña">Montañas y aventura</option>
+        <option value="ciudad">Ciudades vibrantes</option>
+        <option value="cultura">Rincones culturales</option>
+        <option value="naturaleza">Naturaleza y ecoturismo</option>
+      </select>
+    </div>
+
+    <!-- Botones destacados -->
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 30px;">
+      <a href="ofertas.html" style="background: #f25c54; color: white; padding: 12px 22px; border-radius: 10px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 6px rgba(242,92,84,0.5);">🌟 Ofertas Imperdibles</a>
+      <a href="nuevos-destinos.html" style="background: #4287f5; color: white; padding: 12px 22px; border-radius: 10px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 6px rgba(66,135,245,0.5);">✈️ Nuevos Destinos</a>
+      <a href="eventos.html" style="background: #3cb371; color: white; padding: 12px 22px; border-radius: 10px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 6px rgba(60,179,113,0.5);">🎉 Eventos y Encuentros</a>
+    </div>
+
+    <!-- Formulario de contacto -->
+    <form>
+      <label for="email">Tu correo:</label><br>
+      <input type="email" id="email" name="email" placeholder="tu@email.com" required><br>
+
+      <label for="comentario">Cuéntanos qué te gustó:</label><br>
+      <textarea id="comentario" name="comentario" rows="4" placeholder="Tus comentarios..." required></textarea><br>
+
+      <button type="submit">Enviar Comentario</button>
+    </form>
+
+    <!-- Frases motivacionales -->
+    <div class="frases">
+      <p>“El mundo es un libro infinito, y cada viaje es una oportunidad para descubrir nuevas páginas de nuestra propia historia.”</p>
+      <p>“Viajar abre el corazón, nos regala momentos que nunca olvidaremos y nos hace crecer.”</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <hr />
+    <div class="footer-container">
+      <div>Registro de marca by<br><strong>Oliveto Matías</strong></div>
+      <div class="footer-icons">
+        <a href="https://www.instagram.com/juntando.millas" target="_blank" style="color: #E4405F;"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@juntando.millas" target="_blank" style="color: #000000;"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/541161070207" target="_blank" style="color: #25D366;"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
