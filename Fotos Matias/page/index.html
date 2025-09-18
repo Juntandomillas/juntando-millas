@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juntando.Millas</title>
+  <!-- Font Awesome para los íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Fondo de perfil y estilo general */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fcfcfc;
+      background-image: url("../Fotos_Galeria/Foto\ Inicio"); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Evitar selección y arrastre */
+    .no-move {
+      user-select: none;
+      -webkit-user-drag: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-touch-callout: none;
+      cursor: default;
+    }
+
+    /* Encabezado de perfil */
+    .perfil-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      background-color: rgba(255,255,255,0.7);
+      border-radius: 10px;
+    }
+
+    .perfil-header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .perfil-header p {
+      color: #0328fc;
+      font-size: 28px;
+      margin: 0;
+      -webkit-text-stroke: 1px blue; /* Safari/Chrome */
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Encabezado principal */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #5dade2;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      margin-right: 20px;
+    }
+
+    main {
+      display: flex;
+      justify-content: flex-start;
+      padding: 40px;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    main p {
+      font-size: 1.5rem;
+      line-height: 2;
+      color: #010b13;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 700;
+      text-align: left;
+      text-shadow: 2px 2px 12px rgba(0,0,0,0.3);
+      max-width: 600px;
+    }
+
+    #mapContainer {
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: grab;
+    }
+
+    #mapContainer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 10px;
+      padding-top: 50px;
+    }
+
+    footer hr {
+      border: none;
+      border-top: 6px solid #000;
+      width: 100%;
+      margin: 0 0 10px 0;
+    }
+
+    footer div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    footer a {
+      font-size: 36px;
+      transition: transform 0.2s;
+    }
+
+    footer a:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Encabezado de perfil -->
+  <div class="no-move perfil-header">
+    <img src="/Fotos Matias/Fotos_Galeria/Foto Portada.jpeg" alt="Foto manejando">
+    <p>✈️ Juntando.Millas</p>
+  </div>
+
+  <!-- Encabezado principal -->
+  <header>
+    <h1>✈️ Pasaporte Abierto</h1>
+    <nav>
+      <a href="./experiencia.html">Experiencias</a>
+      <a href="./Bitacora.html">Bitacora</a>
+      <a href="./contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Cuerpo principal -->
+  <main>
+    <p>
+      🌍 Apasionado por descubrir el mundo y conectar con nuevas culturas ✈️, transformo cada viaje en una historia visual auténtica 📸✨. A través de contenido creativo y cuidado en redes sociales 🤳, busco inspirar, informar y despertar la curiosidad.<br><br>
+      Siempre con la mochila lista 🎒, la cámara en mano y el corazón abierto 💬, mi objetivo es mostrar que viajar no es solo moverse... es vivir, aprender y compartir. ¡Bienvenidx a esta aventura! 🚀🌎
+    </p>
+
+    <!-- Mapa Mundi interactivo -->
+    <div id="mapContainer">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="Mapa Mundi">
+    </div>
+  </main>
+
+  <script>
+    const mapContainer = document.getElementById('mapContainer');
+    const mapImg = mapContainer.querySelector('img');
+
+    let isDragging = false;
+    let startX, startY;
+    let currentX = 0, currentY = 0;
+    let scale = 1;
+
+    mapContainer.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.clientX - currentX;
+      startY = e.clientY - startY;
+      mapContainer.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      mapContainer.style.cursor = 'grab';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      currentX = e.clientX - startX;
+      currentY = e.clientY - startY;
+      mapImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
+    });
+
+    mapContainer.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const delta = e.deltaY > 0 ? -0.1 : 0.1;
+      scale += delta;
+      if(scale < 0.5) scale = 0.5;
+      if(scale > 3) scale = 3;
+      mapImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
+    });
+  </script>
+
+  <!-- Footer con íconos -->
+  <footer>
+    <hr>
+    <div>
+      <div>
+        Registro de marca by<br>
+        <strong>Oliveto Matías</strong>
+      </div>
+      <div style="display:flex; gap:25px;">
+        <a href="https://www.instagram.com/juntando.millas" target="_blank" style="color: #E4405F;"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@juntando.millas" target="_blank" style="color: #000;"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/541161070207" target="_blank" style="color: #25D366;"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
