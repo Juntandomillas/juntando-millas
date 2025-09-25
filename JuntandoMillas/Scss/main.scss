@@ -1,0 +1,22 @@
+.social-links {
+  display: flex;
+  gap: 12px; // espacio entre íconos
+  align-items: center;
+
+  a {
+    font-size: 1.8rem; // tamaño del ícono
+    text-decoration: none;
+
+    &.instagram {
+      color: #E4405F; // Instagram (oficial)
+    }
+
+    &.tiktok {
+      color: #000000; // TikTok (oficial)
+    }
+
+    &.whatsapp {
+      color: #25D366; // WhatsApp (oficial)
+    }
+  }
+}
