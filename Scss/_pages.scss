@@ -1,0 +1,43 @@
+// Scss/_pages.scss
+
+@use 'variables' as var;
+
+main {
+    display: flex;
+    justify-content: flex-start;
+    padding: 40px; 
+    flex-wrap: wrap;
+    gap: 40px; 
+
+    p {
+        font-size: 1.5rem;
+        line-height: 2;
+        color: #010b13; 
+        font-family: var.$font-parrafo;
+        font-weight: 700;
+        text-align: left;
+        text-shadow: 2px 2px 12px rgba(0,0,0,0.3); 
+        max-width: 600px;
+    }
+
+    #mapContainer {
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: none; 
+        background: transparent;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: grab;
+    }
+
+    #mapContainer img {
+        width: 120%; 
+        height: 120%; 
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+}

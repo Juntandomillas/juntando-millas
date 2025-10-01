@@ -1,0 +1,52 @@
+// Scss/_footer.scss
+
+/* Footer */
+footer {
+    margin-top: 10px;
+    padding-top: 50px; 
+    
+    // LÍNEA DIVISORIA NEGRA (6px solid #000)
+    hr {
+        border: none;
+        border-top: 6px solid #000; // ¡NEGRO y 6px, tal como pediste!
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+
+    // Contenedor principal para alineación Izquierda/Derecha
+    .footer-content { 
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        padding: 10px 20px;
+        color: #000; // El color de texto #000 (negro)
+        
+        // Estilo general para el texto (Registro de marca by...)
+        .footer-text-left { 
+            font-size: 16px; 
+            color: #000; 
+            line-height: 1.3;
+        }
+    }
+
+    // Íconos Sociales (alineados horizontalmente a la derecha)
+    .footer-icons {
+        display: flex;
+        gap: 25px; // Separación de 25px entre íconos, tal como pediste
+    }
+
+    // Estilos individuales y de hover para los íconos
+    .footer-icons a {
+        font-size: 36px;
+        text-decoration: none; 
+        
+        &.instagram { color: #E4405F; }
+        &.tiktok { color: #000000; }
+        &.whatsapp { color: #25D366; }
+        
+        // Puedes agregar un efecto de hover si lo deseas:
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
